@@ -11,6 +11,7 @@ Created on Tue Jun 16 17:18:41 2020
 # x = 5
 
 def spaargeld(geld,rente,x):
+    """berekent spaargeld na x jaar met een while-loop"""
     jaar = 0
     while jaar < x:
         geld = geld * rente
@@ -22,6 +23,8 @@ def spaargeld(geld,rente,x):
 # voeg de if-statement van hierboven toe om alleen het laatste jaar te tonen
 
 def spaargeld2(geld,rente,x):
+    """berekent spaargeld na x jaar met een for-loop
+        inclusief alle tussenliggende jaren"""
     for jaar in range(0,(x+1)):
         if jaar == 0:
             geld = geld
@@ -34,9 +37,11 @@ spaargeld2(1000,1.03,5)
 
 # met input van de gebruiker
 
-geld = float(input('Startinleg: '))
-rentepercentage = float(input('Rentepercentage in procent: '))
-jaar = float(input('Jaar: '))
-rente = (100.0 + rentepercentage) / 100
-huidige_spaargeld = geld * rente**jaar
-print(f"Na {jaar} jaar heb je {round(huidige_spaargeld,2)} spaargeld.")
+geld_input = float(input('Startinleg: '))
+rentepercentage_input = float(input('Rentepercentage in procent: '))
+x_input = float(input('Jaar: '))
+rente_input = (100.0 + rentepercentage_input) / 100
+# de onderstaande twee regels kunnen evt. de function call vervangen
+# huidige_spaargeld = geld * rente**jaar
+# print(f"Na {jaar} jaar heb je {round(huidige_spaargeld,2)} spaargeld.")
+spaargeld(geld_input, rente_input, x_input)
